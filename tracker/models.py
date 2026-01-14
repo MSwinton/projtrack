@@ -33,3 +33,14 @@ class Task_Relation(models.Model):
     task = models.ForeignKey(Task, on_delete=models.CASCADE)
     related_task = models.ForeignKey(Task, on_delete=models.CASCADE)
     relationship = models.CharField(max_length=20)
+
+# Beyond the scope of this for now, but an idea for scaling to multiple projects without hard-resetting.
+# Another option would be to have some tables be general (User, for example) and project-level tables in a project schema, but IDK how hard that is to do in Django.
+# class Project(models.Model):
+#     project = models.CharField(max_length=100)
+#     alias = models.CharField(max_length=10)
+#     description = models.CharField(max_length=1000)
+
+# class UserProject(models.Model):
+#     project = models.ForeignKey(Project, on_delete=models.CASCADE)
+#     user = models.ForeignKey(User, on_delete=models.CASCADE)
